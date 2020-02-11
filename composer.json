@@ -1,0 +1,54 @@
+{
+    "name": "tompec/laravel-cancellation-insights",
+    "description": "A Laravel package to learn why your customers cancel",
+    "keywords": [
+        "tompec",
+        "laravel-cancellation-insights"
+    ],
+    "homepage": "https://github.com/tompec/laravel-cancellation-insights",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Thomas Petracco",
+            "email": "git@mail.tompec.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tompec\\CancellationInsights\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tompec\\CancellationInsights\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tompec\\CancellationInsights\\CancellationInsightsServiceProvider"
+            ],
+            "aliases": {
+                "CancellationInsights": "Tompec\\CancellationInsights\\CancellationInsightsFacade"
+            }
+        }
+    }
+}
