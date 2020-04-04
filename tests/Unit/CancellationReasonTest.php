@@ -2,8 +2,9 @@
 
 namespace Tompec\CancellationInsights\Tests\Unit;
 
-use Tompec\CancellationInsights\Models\CancellationReason;
 use Tompec\CancellationInsights\Tests\TestCase;
+use Tompec\CancellationInsights\Models\CancellationReason;
+use Tompec\CancellationInsights\Models\CancellationInsight;
 
 class CancellationReasonTest extends TestCase
 {
@@ -45,5 +46,16 @@ class CancellationReasonTest extends TestCase
         ]);
 
         $this->assertEquals(0, $reason->is_active);
+    }
+
+    /** @test */
+    public function it_has_insights()
+    {
+        $reason = factory(CancellationReason::class)->create();
+        $insight = factory(CancellationInsight::class, 3)->create([
+            'cancellation_reason_id' => $reason->id,
+        ]);
+
+        $this->assertEquals(3, $reason->insights->count());
     }
 }

@@ -18,4 +18,9 @@ class CancellationReason extends Model
     {
         return $query->where('is_active', 1);
     }
+
+    public function insights()
+    {
+        return $this->hasMany(CancellationInsight::class);
+    }
 }
