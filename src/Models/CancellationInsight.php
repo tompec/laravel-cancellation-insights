@@ -12,4 +12,9 @@ class CancellationInsight extends Model
     {
         return $this->morphTo();
     }
+
+    public function reason()
+    {
+        return $this->belongsTo(CancellationReason::class, 'cancellation_reason_id');
+    }
 }
