@@ -24,7 +24,7 @@ class CancellationInsightControllerTest extends TestCase
 
         Auth::login($user);
 
-        $response = $this->postJson('/cancellations-insights', [
+        $response = $this->postJson('/cancellation-insights', [
             'cancellation_reason_id' => $reason->id,
         ]);
 
@@ -48,7 +48,7 @@ class CancellationInsightControllerTest extends TestCase
 
         Auth::login($user);
 
-        $response = $this->postJson('/cancellations-insights', [
+        $response = $this->postJson('/cancellation-insights', [
             'cancellation_reason_id' => $reason->id,
             'comment' => 'lorem ipsum',
         ]);
@@ -69,7 +69,7 @@ class CancellationInsightControllerTest extends TestCase
 
         Auth::login(factory(User::class)->create());
 
-        $response = $this->postJson('/cancellations-insights', [
+        $response = $this->postJson('/cancellation-insights', [
             'cancellation_reason_id' => $reason->id,
         ]);
 
