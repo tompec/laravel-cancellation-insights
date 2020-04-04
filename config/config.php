@@ -1,8 +1,8 @@
 <?php
 
-/*
- * You can place your custom package configuration in here.
- */
 return [
-
+    /*
+     * The model that will be attached to the cancellations.
+     */
+    'causer_model' => \App\User::class,
 ];
