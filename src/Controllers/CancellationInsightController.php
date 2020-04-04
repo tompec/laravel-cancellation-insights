@@ -24,8 +24,10 @@ class CancellationInsightController extends Controller
             throw ValidationException::withMessages(['comment' => ['A comment is required.']]);
         }
 
+        $cancellation_insight = Auth::user()->causer->cancellations()->create($request);
+
         Unsubscribed::dispatch(Auth::user()->causer);
 
-        return Auth::user()->causer->cancellations()->create($request);
+        return $cancellation_insight;
     }
 }
